@@ -26,7 +26,7 @@ class message:
             # elif(self.command.startswith("addr")):self.payload=addr(self.payload)
         except:
             print(cp)
-    
+            self.remS=''
     def rem(self):
         k = self.remS
         self.__delattr__("remS")

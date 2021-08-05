@@ -72,28 +72,28 @@ def pingMessage():
     return (magic+command+length+check+payload)
 
 k=1
+mg=''
 while True:
-    d = s.recv(1024)
-    mg=d.hex()
+    d = s.recv(10240)
+    mg+=d.hex()
  
     k+=1
     if(k==3):
         res = pingMessage()
         print("\n\nSENDING ", message(res.hex()),"\n\n")
         s.send(res)
-    while(len(mg)>0):
-        temp= message(mg)
-        mg = temp.rem()
-        print(temp)
-        print("#################################",k)
+    temp= message(mg)
+    mg = temp.rem()
+    print(temp)
+    print("#################################",k)
 
-        if(temp.command.startswith("version")):
-            res = verackMessage()
-            print("\n\nSENDING",message(res.hex()),"\n\n")
-            s.send(res)
-        elif(temp.command.startswith("ping")):
-            res = pongMessage(temp.payload.nonce)
-            print("\n\nSENDING ", message(res.hex()),"\n\n")
-            s.send(res)
-        elif(temp.command.startswith("pong")):
-            print("OKOKOKOKOKOK")
+    if(temp.command.startswith("version")):
+        res = verackMessage()
+        print("\n\nSENDING",message(res.hex()),"\n\n")
+        s.send(res)
+    elif(temp.command.startswith("ping")):
+        res = pongMessage(temp.payload.nonce)
+        print("\n\nSENDING ", message(res.hex()),"\n\n")
+        s.send(res)
+    elif(temp.command.startswith("pong")):
+        print("OKOKOKOKOKOK")
