@@ -34,7 +34,7 @@ version = struct.pack("i", 70002)
 ```
 
 ### Host
-By defalt the application tries connecting to the node at address ***24.64.72.164:8333***.
+By defalt the application tries connecting to the node at address ***24.64.72.174:8333***.
 
 ```
 HOST = "24.64.72.174"
