@@ -15,12 +15,33 @@ That's it, you have a very tiny, very limited bitcoin-node working at port 8333 
 
 The network between two nodes is estavlished via handshake demonstrated above.
 
-### The Version Message
-### The Verack Message
+* The Version Message
+* The Verack Message
 
-## Other Messages
+## Other Messages Used
+* Addr
+* Ping
+* Pong
+* Inv
 
+For more refer [Messages](https://en.bitcoin.it/wiki/Protocol_documentation#Message_types)
 ## Configurations
+### Version
+Default version is set to ***70002***, can be changed by editing the respective variable in connection.py
+
+```
+version = struct.pack("i", 70002)
+```
+
+### Host
+By defalt the application tries connecting to the node at address ***24.64.72.164:8333***.
+
+```
+HOST = "24.64.72.174"
+PORT = 8333
+```
+
+For connecting to other nodes find a stable node at [bitnodes](https://bitnodes.io/)
 
 ## References
 * [Mastering Bitcoin](https://www.oreilly.com/library/view/mastering-bitcoin/9781491902639/ch06.html)
